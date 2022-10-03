@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tmpPath="/tmp/debug"
+tmpPath="/tmp/debug/lib"
 mkdir -p $tmpPath
 
 wget -r --progress=dot "https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh" -O $tmpPath/lib.sh
@@ -40,6 +40,3 @@ EOF
 }
 
 usage
-
-
-# rm -rf $tmpPath
