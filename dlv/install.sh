@@ -42,7 +42,7 @@ PreCheck
 
 # 1、拉取dlv
 Download_Dlv() {
-  wget -q https://github.com/slyang-git/debug/raw/main/dlv/dlv -O /tmp/debug/dlv
+  wget -r --progress=dot https://github.com/slyang-git/debug/raw/main/dlv/dlv -O /tmp/debug/dlv
   chmod u+x /tmp/debug/dlv
 }
 
