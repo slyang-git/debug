@@ -31,8 +31,6 @@ Download_Dlv() {
   wget -r --progress=dot https://github.com/slyang-git/debug/raw/main/dlv/dlv -O /tmp/debug/dlv
   chmod u+x /tmp/debug/dlv
 }
-# 0、检查用户是否为 xiaoju
-Check_User
 
 PreCheck
 
