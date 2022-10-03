@@ -10,8 +10,8 @@ Color_Text()
 
 Echo_Red()
 {
-  echo $(Color_Text "$1" "31")
-#   printf "${Red}$1${NC}\n"
+#   echo $(Color_Text "$1" "31")
+  printf "${Red}$1${NC}\n"
 
 }
 
