@@ -8,6 +8,7 @@ echo "+----------------------------------------------+"
 echo "|               DLV Installer                  |"
 echo "+----------------------------------------------+"
 
+echo 'sssdffffffffff'
 # 初始化变量
 Port="8017"
 Need_Upload_Flag=""
@@ -35,7 +36,6 @@ Check_User
 PreCheck
 
 Download_Dlv
-
 
 if [ -z ${ProcessName} ]; then
   echo
