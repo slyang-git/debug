@@ -15,7 +15,7 @@ echo "|               DLV Installer                  |"
 echo "+----------------------------------------------+"
 
 Echo_Red 'sssdffffffffff'
-ProcessID=`supervisorctl pid ${ProcessName}`
+ProcessID=''
 Echo_Yellow $ProcessID
 
 
