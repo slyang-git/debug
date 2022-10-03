@@ -5,7 +5,7 @@ mkdir -p $tmpPath
 
 wget -q https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh -O $tmpPath/lib.sh
 
-chmod 777 $tmpPath/*.sh
+chmod U+x $tmpPath/*.sh
 source $tmpPath/*.sh
 
 
