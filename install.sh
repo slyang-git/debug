@@ -3,7 +3,7 @@
 tmpPath="/tmp/debug"
 mkdir -p $tmpPath
 
-wget -cq https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh -O $tmpPath/lib.sh
+wget -cq https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh -O $tmpPath/llib.sh
 
 chmod U+x $tmpPath/*.sh
 source $tmpPath/*.sh
