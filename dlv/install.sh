@@ -4,18 +4,21 @@ set -u
 #加载文件
 source /tmp/debug/lib/*.sh
 
+# 初始化变量
+Port="8017"
+Need_Upload_Flag=""
+ProcessName="twitter"
+
+
 # 默认先在机器的home目录下启动dlv，若启动不了，则说明需要安装配置
 echo "+----------------------------------------------+"
 echo "|               DLV Installer                  |"
 echo "+----------------------------------------------+"
 
 Echo_Red 'sssdffffffffff'
-ProcessID=`supervisorctl pid twitter ${ProcessName}`
+ProcessID=`supervisorctl pid ${ProcessName}`
 Echo_Yellow $ProcessID
-# 初始化变量
-Port="8017"
-Need_Upload_Flag=""
-ProcessName=""
+
 
 # 首先检查是否已经启动过dlv server，若已启动则无需再重复启动
 PreCheck() {
