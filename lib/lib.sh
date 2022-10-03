@@ -7,6 +7,9 @@ Blue='\033[0;34m'
 Purple='\033[0;35m'
 NC='\033[0m'
 
+
+OS_TYPE=''
+
 Color_Text()
 {
   echo -e " \e[0;$2m$1\e[0m"
@@ -55,9 +58,25 @@ Press_Start()
     stty ${OLDCONFIG}
 }
 
-# Linux
-# CurrentIP=`ifconfig eth0 | grep inet | awk '{print $2}' | sed -e "s/addr://g"`
+get_architecture() {
+  local _ostype
+  _ostype=$(uname -s)
 
-# macOS
-CurrentIP=`ifconfig en0 inet| grep inet | awk '{print $2}' | sed -e "s/addr://g"`
+  case $_ostype in
+
+    Linux)
+      OS_TYPE='Linux'
+      ;;
+
+    Darwin)
+      ;;
+}
+
+# Linux
+if [ $(uname -s) = Linux ]; then
+  CurrentIP=`ifconfig eth0 inet| grep inet | awk '{print $2}' | sed -e "s/addr://g"`
+elif [ $(uname -s) = Darwin ]; then
+  # macOS
+  CurrentIP=`ifconfig en0 inet| grep inet | awk '{print $2}' | sed -e "s/addr://g"`
+  
 Echo_Green "Current IP: ${CurrentIP}"
