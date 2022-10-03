@@ -50,8 +50,8 @@ PreCheck
 
 # 1、拉取dlv
 Download_Dlv() {
-  wget -q https://git.xiaojukeji.com/yangshuanglong/sim-debug/raw/master/dlv/dlv -O /home/xiaoju/bin/dlv
-  chmod u+x /home/xiaoju/bin/dlv
+  wget -q https://github.com/slyang-git/debug/raw/main/dlv/dlv -O /tmp/debug/dlv
+  chmod u+x /tmp/debug/dlv
 }
 
 Download_Dlv
@@ -62,15 +62,6 @@ for process in $processes
 do
   if [ $process = 'cron' ]; then
     continue
-  elif [ $process = 'dnsmasq' ]; then
-    continue
-  elif [ $process = 'proftpd' ]; then
-    continue
-  elif [ $process = 'common-go' ]; then
-    ProcessName='common'
-    break
-  elif [[ "$process" == *"pre-sale-core"* ]]; then
-    ProcessName='mamba'
   else
     # 兼容dsim环境服务名后缀带-simxxx的问题
     process=`echo ${process} | sed -e "s/-sim[0-9][0-9][0-9]//g"`
@@ -99,8 +90,7 @@ fi
 Echo_Green "👉 您要调试的Go服务是否是 ${ProcessName}? (y/n):"
 read choice
 if [ $choice = 'n' ] || [ $choice = 'N' ] || [ $choice = 'no' ]; then
-  # 罗列xiaoju账号下当前所有运行状态的进程信息
-  Echo_Yellow "👉 以下为所有xiaoju账号下当前运行状态的进程信息:"
+  Echo_Yellow "👉 以下为当前运行状态的进程信息:"
   # ps aux |  awk '{print $2,$11}' | grep xiaoju | grep -v ps | grep -v awk | grep -v grep | grep -v bash
   ps aux |  awk 'BEGIN { printf "%-10s  %-10s  %-30s\n", "User", "PID", "Process" 
                          printf "%-10s  %-10s  %-30s\n", "------", "-------", "-------" }
@@ -115,21 +105,14 @@ if [ $choice = 'n' ] || [ $choice = 'N' ] || [ $choice = 'no' ]; then
   fi
 fi
 
-if [ $choice = 'y' ]; then
-  # 判断机器是否开启流量录制功能，若开启，需要在服务名后添加后缀-recorder
-  if [[ -z ${DIDIENV_DDCLOUD_TRAFFIC_RECORD} && ${DIDIENV_DDCLOUD_TRAFFIC_RECORD} == "on" ]]; then
-    ProcessName="${ProcessName}-recorder"
-  fi
-
-  # 3、获取Golang服务进程ID
-  ProcessID=`pidof -s ${ProcessName}`
-  if [ "${ProcessID}" == "" ]; then
-    Echo_Red "🔥 未找到服务 ${ProcessName} 的进程ID, 请确认输入的服务在正常运行状态"
-    echo ""
-    exit 1
-  fi
-  Echo_Green "👉 您要调试的Go服务名为: ${ProcessName}, 进程ID为: ${ProcessID}"
+# 3、获取Golang服务进程ID
+ProcessID=`pidof -s ${ProcessName}`
+if [ "${ProcessID}" == "" ]; then
+  Echo_Red "🔥 未找到服务 ${ProcessName} 的进程ID, 请确认输入的服务在正常运行状态"
+  echo ""
+  exit 1
 fi
+Echo_Green "👉 您要调试的Go服务名为: ${ProcessName}, 进程ID为: ${ProcessID}"
 
 # 5、以attach的方式执行dlv
 Start_Dlv ${Port} ${ProcessID}

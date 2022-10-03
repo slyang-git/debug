@@ -55,6 +55,6 @@ fi
 
 plugin=$1
 
-# wget -q https://git.xiaojukeji.com/yangshuanglong/sim-debug/raw/master/${plugin}/install.sh -O /home/xiaoju/bin/${plugin}_install.sh
+wget -q https://git.xiaojukeji.com/yangshuanglong/sim-debug/raw/master/${plugin}/install.sh -O /home/xiaoju/bin/${plugin}_install.sh
 # chmod u+x /home/xiaoju/bin/${plugin}_install.sh
 # /home/xiaoju/bin/${plugin}_install.sh
