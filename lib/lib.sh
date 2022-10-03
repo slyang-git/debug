@@ -1,5 +1,8 @@
 #!/bin/bash
 
+Red='\033[0;31m'
+NC='\033[0m'
+
 Color_Text()
 {
   echo -e " \e[0;$2m$1\e[0m"
@@ -7,7 +10,9 @@ Color_Text()
 
 Echo_Red()
 {
-  echo $(Color_Text "$1" "31")
+#   echo $(Color_Text "$1" "31")
+  printf "${Red}$1${NC}\n"
+
 }
 
 Echo_Green()
@@ -43,4 +48,5 @@ Press_Start()
     stty ${OLDCONFIG}
 }
 
+Echo_Red "hello"
 CurrentIP=`ifconfig eth0 | grep inet | awk '{print $2}' | sed -e "s/addr://g"`
