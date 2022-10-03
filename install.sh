@@ -40,6 +40,6 @@ EOF
 }
 
 usage
-Echo_Red "hello"
 
-rm -rf $tmpPath
+
+# rm -rf $tmpPath
