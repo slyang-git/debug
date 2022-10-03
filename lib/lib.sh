@@ -71,7 +71,7 @@ get_architecture() {
     Darwin)
       OS_TYPE='Darwin'
       ;;
-    esac
+  esac
 }
 
 # Linux
