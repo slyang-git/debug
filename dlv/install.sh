@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #加载文件
-source /tmp/debug/*.sh
+source /tmp/debug/lib/*.sh
 
 # 默认先在机器的home目录下启动dlv，若启动不了，则说明需要安装配置
 echo "+------------------------------------------------------+"
@@ -34,11 +34,6 @@ Start_Dlv() {
   nohup dlv attach ${ProcessID} --listen=:${Port} --headless --accept-multiclient --continue --api-version=2 --log --log-output=rpc,dap,debugger >> /tmp/dlv.log 2>&1 &
 }
 
-Check_Need_Upload_Custom_File()
-{
-  read -rp "👉 (测试功能)请确定是否需要上传自定义二进制文件 [Y/N] (default:N): " Need_Upload_Flag
-}
-
 
 # 0、检查用户是否为 xiaoju
 Check_User
@@ -54,27 +49,27 @@ Download_Dlv() {
 Download_Dlv
 
 # 先自动识别Go服务名，若未成功识别，则让用户手动输入
-processes=`supervisorctl status | awk '{print $1}'`
-for process in $processes
-do
-  if [ $process = 'cron' ]; then
-    continue
-  else
-    # 兼容dsim环境服务名后缀带-simxxx的问题
-    process=`echo ${process} | sed -e "s/-sim[0-9][0-9][0-9]//g"`
-    # 兼容osim环境服务名后缀带-dsimxxx的问题
-    process=`echo ${process} | sed -e "s/-osim[0-9][0-9][0-9]//g"`
-    # 兼容price-api-hna-sim133这种服务名case（带有hna这种集群信息）
-    process=`echo ${process} | sed -e "s/-hna//g"`
-    # 兼容biz-dds-hna-sim168这种服务名case（前面带有biz-）
-    process=`echo ${process} | sed -e "s/biz-//g"`
-    # 兼容taxi-order-sync-online-sim176 中的online字符串
-    process=`echo ${process} | sed -e "s/-online//g"`
+# processes=`supervisorctl status | awk '{print $1}'`
+# for process in $processes
+# do
+#   if [ $process = 'cron' ]; then
+#     continue
+#   else
+#     # 兼容dsim环境服务名后缀带-simxxx的问题
+#     process=`echo ${process} | sed -e "s/-sim[0-9][0-9][0-9]//g"`
+#     # 兼容osim环境服务名后缀带-dsimxxx的问题
+#     process=`echo ${process} | sed -e "s/-osim[0-9][0-9][0-9]//g"`
+#     # 兼容price-api-hna-sim133这种服务名case（带有hna这种集群信息）
+#     process=`echo ${process} | sed -e "s/-hna//g"`
+#     # 兼容biz-dds-hna-sim168这种服务名case（前面带有biz-）
+#     process=`echo ${process} | sed -e "s/biz-//g"`
+#     # 兼容taxi-order-sync-online-sim176 中的online字符串
+#     process=`echo ${process} | sed -e "s/-online//g"`
 
-    ProcessName=$process
-    break
-  fi
-done
+#     ProcessName=$process
+#     break
+#   fi
+# done
 
 if [ -z ${ProcessName} ]; then
   echo
