@@ -1,4 +1,5 @@
 #!/bin/bash
+set -u
 
 #加载文件
 source /tmp/debug/lib/*.sh
