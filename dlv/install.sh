@@ -8,7 +8,7 @@ echo "+----------------------------------------------+"
 echo "|               DLV Installer                  |"
 echo "+----------------------------------------------+"
 
-echo 'sssdffffffffff'
+Echo_Red 'sssdffffffffff'
 # 初始化变量
 Port="8017"
 Need_Upload_Flag=""
@@ -43,7 +43,6 @@ if [ -z ${ProcessName} ]; then
   echo
   exit 0
 fi
-
 
 # 3、获取Golang服务进程ID
 ProcessID=`supervisorctl pid twitter ${ProcessName}`
