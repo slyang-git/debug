@@ -1,6 +1,10 @@
 #!/bin/bash
 
 Red='\033[0;31m'
+Green='\033[0;32m'
+Yellow='\033[0;33m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
 NC='\033[0m'
 
 Color_Text()
@@ -17,17 +21,20 @@ Echo_Red()
 
 Echo_Green()
 {
-  echo $(Color_Text "$1" "32")
+#   echo $(Color_Text "$1" "32")
+  printf "${Green}$1${NC}\n"
 }
 
 Echo_Yellow()
 {
-  echo $(Color_Text "$1" "33")
+#   echo $(Color_Text "$1" "33")
+  printf "${Yellow}$1${NC}\n"
 }
 
 Echo_Blue()
 {
-  echo $(Color_Text "$1" "34")
+#   echo $(Color_Text "$1" "34")
+    printf "${Blue}$1${NC}\n"        
 }
 
 
@@ -50,3 +57,4 @@ Press_Start()
 
 
 CurrentIP=`ifconfig eth0 | grep inet | awk '{print $2}' | sed -e "s/addr://g"`
+Echo_Green "Current IP: ${CurrentIP}"
