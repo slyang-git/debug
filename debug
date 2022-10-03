@@ -1,0 +1,30 @@
+#!/bin/bash
+
+source /tmp/debug/lib.sh
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+    usage
+    exit
+fi
+
+argList="dlv dbgp xdebug allinone nuwa rsync upload"
+
+flag=0
+
+for arg in $argList
+do
+  if [ "$1" == $arg ]; then
+    flag=1
+  fi
+done
+
+if [ $flag == 0 ]; then
+  usage
+  exit
+fi
+
+plugin=$1
+
+# wget -q https://git.xiaojukeji.com/yangshuanglong/sim-debug/raw/master/${plugin}/install.sh -O /home/xiaoju/bin/${plugin}_install.sh
+# chmod u+x /home/xiaoju/bin/${plugin}_install.sh
+# /home/xiaoju/bin/${plugin}_install.sh
