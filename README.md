@@ -1,6 +1,6 @@
 # debug
 
-
+```
        __     __               
   ____/ /__  / /_  __  ______ _
  / __  / _ \/ __ \/ / / / __  /
@@ -24,3 +24,4 @@ xdebug   setup xdebug debugger for PHP.
 upload   upload PHP source files to remote host  
 rsync    setup rsyc server for sync go binary file.
 dbgp     setup xdebug dbgpProxy for PHP.
+```
