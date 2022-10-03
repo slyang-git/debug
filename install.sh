@@ -17,7 +17,6 @@ cat 1>&2 <<EOF
 / /_/ /  __/ /_/ / /_/ / /_/ / 
 \__,_/\___/_.___/\__,_/\__, /  
                       /____/   
-  
 
 debug is a tool for setup and running Go/PHP/Java/Python/C++ debugger.
 
