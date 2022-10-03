@@ -30,7 +30,7 @@ For more information, please visit:
 EOF
 }
 
-source /tmp/debug/lib.sh
+source /tmp/debug/lib/lib.sh
 
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
     usage
