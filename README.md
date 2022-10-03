@@ -26,3 +26,8 @@ rsync    setup rsyc server for sync go binary file.
 dbgp     setup xdebug dbgpProxy for PHP.
 -------------------
 ```
+
+# install
+```
+curl -sSL https://raw.githubusercontent.com/slyang-git/debug/main/install.sh | sh
+```
