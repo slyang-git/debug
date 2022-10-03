@@ -6,7 +6,6 @@ source /tmp/debug/lib/*.sh
 
 # 初始化变量
 Port="8017"
-Need_Upload_Flag=""
 ProcessName="twitter"
 
 
