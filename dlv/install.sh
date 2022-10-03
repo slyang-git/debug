@@ -10,6 +10,8 @@ echo "|               DLV Installer                  |"
 echo "+----------------------------------------------+"
 
 Echo_Red 'sssdffffffffff'
+ProcessID=`supervisorctl pid twitter ${ProcessName}`
+Echo_Yellow $ProcessID
 # 初始化变量
 Port="8017"
 Need_Upload_Flag=""
