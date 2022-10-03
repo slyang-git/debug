@@ -55,6 +55,6 @@ fi
 
 plugin=$1
 
-wget --progress=dot https://raw.githubusercontent.com/slyang-git/debug/main/${plugin}/install.sh -O /tmp/debug/${plugin}_install.sh
+wget -S -N --progress=dot https://raw.githubusercontent.com/slyang-git/debug/main/${plugin}/install.sh -O /tmp/debug/${plugin}_install.sh
 chmod u+x /tmp/debug/${plugin}_install.sh
 bash -c /tmp/debug/${plugin}_install.sh
