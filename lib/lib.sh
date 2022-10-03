@@ -70,6 +70,7 @@ get_architecture() {
 
     Darwin)
       ;;
+    esac
 }
 
 # Linux
@@ -78,5 +79,5 @@ if [ $(uname -s) = Linux ]; then
 elif [ $(uname -s) = Darwin ]; then
   # macOS
   CurrentIP=`ifconfig en0 inet| grep inet | awk '{print $2}' | sed -e "s/addr://g"`
-  
+
 Echo_Green "Current IP: ${CurrentIP}"
