@@ -59,5 +59,5 @@ Press_Start()
 # CurrentIP=`ifconfig eth0 | grep inet | awk '{print $2}' | sed -e "s/addr://g"`
 
 # macOS
-CurrentIP=`ifconfig en0 | grep inet | awk '{print $2}' | sed -e "s/addr://g"`
+CurrentIP=`ifconfig en0 inet| grep inet | awk '{print $2}' | sed -e "s/addr://g"`
 Echo_Green "Current IP: ${CurrentIP}"
