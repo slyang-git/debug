@@ -41,3 +41,5 @@ EOF
 
 usage
 Echo_Red "hello"
+
+rm -rf $tmpPath
