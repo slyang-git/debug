@@ -1,10 +1,7 @@
 #!/bin/bash
 
-#下载库文件
-curl -sSfL https://git.xiaojukeji.com/yangshuanglong/sim-debug/raw/master/lib/download_reuire_file.sh | bash
-
 #加载文件
-source /home/xiaoju/bin/tool-lib/*.sh
+source /tmp/debug/*.sh
 
 # 默认先在机器的home目录下启动dlv，若启动不了，则说明需要安装配置
 echo "+------------------------------------------------------+"
