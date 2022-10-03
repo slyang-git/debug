@@ -76,7 +76,7 @@ get_architecture() {
 
 # Linux
 if [ $(uname -s) = 'Linux' ]; then
-  CurrentIP=`ifconfig eth0 inet| grep inet | awk '{print $2}' | sed -e "s/addr://g"`
+  CurrentIP=`ifconfig eth0| grep inet | awk '{print $2}' | sed -e "s/addr://g"`
 elif [ $(uname -s) = 'Darwin' ]; then
   # macOS
   CurrentIP=`ifconfig en0 inet| grep inet | awk '{print $2}' | sed -e "s/addr://g"`
