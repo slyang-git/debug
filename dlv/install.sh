@@ -15,6 +15,7 @@ ProcessName=""
 
 # 首先检查是否已经启动过dlv server，若已启动则无需再重复启动
 PreCheck() {
+  Echo_Red "ssss"
   pidofdlv=`pgrep -f "dlv attach"`
   if [ ! -z "${pidofdlv}" ]; then
     Echo_Yellow "👉 Dlv Server已经在 ${CurrentIP}:${Port} 运行了，可以查看/tmp/debug/dlv.log日志"
