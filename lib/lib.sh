@@ -55,6 +55,9 @@ Press_Start()
     stty ${OLDCONFIG}
 }
 
+# Linux
+# CurrentIP=`ifconfig eth0 | grep inet | awk '{print $2}' | sed -e "s/addr://g"`
 
-CurrentIP=`ifconfig eth0 | grep inet | awk '{print $2}' | sed -e "s/addr://g"`
+# macOS
+CurrentIP=`ifconfig en0 | grep inet | awk '{print $2}' | sed -e "s/addr://g"`
 Echo_Green "Current IP: ${CurrentIP}"
