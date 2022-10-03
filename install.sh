@@ -1,5 +1,15 @@
 #!/bin/bash
 
+tmpPath="/tmp/debug"
+mkdir -p $tmpPath
+
+
+wget -q https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh -O $tmpPath/lib.sh
+
+chmod u+x $tmpPath/*.sh
+source $tmpPath/*.sh
+
+
 usage() {
     cat 1>&2 <<EOF
        __     __               
@@ -10,7 +20,7 @@ usage() {
                       /____/   
   
 
-debug is a tool for setup and running Go/PHP debugger.
+debug is a tool for setup and running Go/PHP/Java/Python/C++ debugger.
 
 Usage:
 debug [flag] [command]
@@ -22,12 +32,13 @@ Available Commands:
 -------------------
 dlv      setup dlv debugger for Go. 
 xdebug   setup xdebug debugger for PHP. 
-upload   upload PHP source files to SIM host  
+upload   upload PHP source files to remote host  
 rsync    setup rsyc server for sync go binary file.
 dbgp     setup xdebug dbgpProxy for PHP.
 
-For more information, please visit
+For more information, please visit: 
 EOF
 }
 
 usage
+Echo_Green "hello"
