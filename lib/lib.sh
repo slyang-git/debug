@@ -10,8 +10,8 @@ Color_Text()
 
 Echo_Red()
 {
-#   echo $(Color_Text "$1" "31")
-  printf "${Red}$1${NC}\n"
+  echo $(Color_Text "$1" "31")
+#   printf "${Red}$1${NC}\n"
 
 }
 
@@ -48,5 +48,4 @@ Press_Start()
     stty ${OLDCONFIG}
 }
 
-Echo_Red "hello"
 CurrentIP=`ifconfig eth0 | grep inet | awk '{print $2}' | sed -e "s/addr://g"`
