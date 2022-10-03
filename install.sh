@@ -4,7 +4,7 @@ tmpPath="/tmp/debug"
 mkdir -p $tmpPath
 
 
-wget -q https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh -O $tmpPath/lib.sh
+wget https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh -O $tmpPath/lib.sh
 
 chmod u+x $tmpPath/*.sh
 source $tmpPath/*.sh
