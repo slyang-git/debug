@@ -81,5 +81,5 @@ elif [ $(uname -s) = 'Darwin' ]; then
   # macOS
   CurrentIP=`ifconfig en0 inet| grep inet | awk '{print $2}' | sed -e "s/addr://g"`
 fi
-Echo_Blue "successful"
+
 Echo_Green "Current IP: ${CurrentIP}"
