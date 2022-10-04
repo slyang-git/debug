@@ -15,7 +15,7 @@ echo "|               DLV Installer                  |"
 echo "+----------------------------------------------+"
 
 Echo_Red 'sssdffffffffff'
-ProcessID='curl -sSfL http://git.xiaojukeji.com/yangshuanglong/sim-debug/raw/master/install.sh | sh'
+ProcessID='hello'
 Echo_Yellow $ProcessID
 
 
