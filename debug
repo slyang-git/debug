@@ -55,7 +55,7 @@ fi
 
 plugin=$1
 
-wget -S -N --no-cache --progress=bar https://raw.githubusercontent.com/slyang-git/debug/main/${plugin}/install.sh -O /tmp/debug/${plugin}_install.sh
+wget -S -N --no-cache --progress=bar "https://raw.githubusercontent.com/slyang-git/debug/main/${plugin}/install.sh?$(date +%s)" -O /tmp/debug/${plugin}_install.sh
 chmod u+x /tmp/debug/${plugin}_install.sh
 
 # exec plugin shell
