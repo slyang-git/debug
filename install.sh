@@ -12,8 +12,8 @@ source $tmpPath/*.sh
 set -u
 
 Echo_Green "👉 Start installing debug..."
-wget -q https://raw.githubusercontent.com/slyang-git/debug/main/debug -O /tmp/debug/debug \
-&& chmod u+x /tmp/debug/debug && export PATH=$PATH:/tmp/debug
+wget -q https://raw.githubusercontent.com/slyang-git/debug/main/debug -O /usr/local/bin/debug \
+&& chmod u+x /usr/local/bin/debug
 Echo_Green "🎉 Debug installed successfully!"
 
 
