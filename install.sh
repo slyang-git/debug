@@ -8,6 +8,16 @@ wget -r -S -d --no-cache --progress=bar "https://raw.githubusercontent.com/slyan
 chmod u+x $tmpPath/*.sh
 source $tmpPath/*.sh
 
+# install debug tool
+set -u
+
+Echo_Green "👉 Start installing debug..."
+mkdir -p /home/xiaoju/bin
+wget -q https://raw.githubusercontent.com/slyang-git/debug/main/debug -O /tmp/debug/debug \
+&& chmod u+x /tmp/debug/debug
+
+Echo_Green "🎉 Debug installed successfully!"
+
 
 usage() {
 cat 1>&2 <<EOF
