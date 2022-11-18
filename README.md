@@ -31,3 +31,8 @@ dbgp     setup xdebug dbgpProxy for PHP.
 ```
 curl -sSL https://raw.githubusercontent.com/slyang-git/debug/main/install.sh | bash
 ```
+
+# Contribution
+- fork this repo
+- make some changes/features
+- git merge
