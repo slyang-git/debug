@@ -20,7 +20,7 @@ wget -q https://raw.githubusercontent.com/slyang-git/debug/main/debug -O /tmp/de
 && chmod u+x /tmp/debug/debug
 
 export PATH=$PATH:/tmp/debug # no effect
-echo "/tmp/debug" >> $PATH
+# echo "/tmp/debug" >> $PATH
 
 Echo_Green "🎉 Debug installed successfully!"
 
