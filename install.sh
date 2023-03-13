@@ -1,12 +1,16 @@
 #!/bin/bash
 
-tmpPath="/tmp/debug/lib"
-mkdir -p $tmpPath
+# Set USER
+USER=${USER:-$(id -u -n)}
+HOME="${HOME:-$(getent passwd $USER | cut -d: -f6)}"
+
+TMPPath="/tmp/debug/lib"
+mkdir -p $TMPPath
 
 wget -r -S -d --no-cache --progress=bar "https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh?${RANDOM}" -O $tmpPath/lib.sh
 
-chmod u+x $tmpPath/*.sh
-source $tmpPath/*.sh
+chmod u+x $TMPPath/*.sh
+source $TMPPath/*.sh
 
 # install debug tool
 set -u
@@ -14,7 +18,9 @@ set -u
 Echo_Green "👉 Start installing debug..."
 wget -q https://raw.githubusercontent.com/slyang-git/debug/main/debug -O /tmp/debug/debug \
 && chmod u+x /tmp/debug/debug
-export PATH=$PATH:/tmp/debug
+
+export PATH=$PATH:/tmp/debug # no effect
+echo "/tmp/debug" >> $PATH
 
 Echo_Green "🎉 Debug installed successfully!"
 
@@ -43,7 +49,7 @@ upload   upload PHP source files to remote host
 rsync    setup rsyc server for sync go binary file.
 dbgp     setup xdebug dbgpProxy for PHP.
 
-For more information, please visit: 
+For more information, please visit: https://www.baidu.com/
 EOF
 }
 
