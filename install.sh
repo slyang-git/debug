@@ -4,10 +4,10 @@
 USER=${USER:-$(id -u -n)}
 HOME="${HOME:-$(getent passwd $USER | cut -d: -f6)}"
 
-TMPPath="/tmp/debug/lib"
-mkdir -p $TMPPath
+TMPPATH="/tmp/debug/lib"
+mkdir -p $TMPPATH
 
-wget -r -S -d --no-cache --progress=bar "https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh?${RANDOM}" -O $tmpPath/lib.sh && chmod u+x $TMPPath/*.sh && source $TMPPath/*.sh
+wget -r -S --no-cache --progress=bar "https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh?${RANDOM}" -O $TMPPATH/lib.sh && chmod u+x $TMPPATH/*.sh && source $TMPPATH/*.sh
 
 # install debug tool
 set -u
