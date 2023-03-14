@@ -7,7 +7,7 @@ HOME="${HOME:-$(getent passwd $USER | cut -d: -f6)}"
 TMPPATH="/tmp/debug/lib"
 mkdir -p $TMPPATH
 
-wget -r -S --no-cache --progress=bar "https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh?${RANDOM}" -O $TMPPATH/lib.sh && chmod u+x $TMPPATH/*.sh && source $TMPPATH/*.sh
+wget -q --no-cache --progress=bar "https://raw.githubusercontent.com/slyang-git/debug/main/lib/lib.sh?${RANDOM}" -O $TMPPATH/lib.sh && chmod u+x $TMPPATH/*.sh && source $TMPPATH/*.sh
 
 # install debug tool
 set -u
