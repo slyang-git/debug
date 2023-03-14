@@ -55,6 +55,7 @@ EOF
 
 main() {
      usage
+     exec sh -l
 }
 
 
