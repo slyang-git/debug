@@ -53,7 +53,7 @@ EOF
 
 main() {
      usage
-     exec bash -l
+     exec "$SHELL" -l
 }
 
 
