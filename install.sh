@@ -18,7 +18,8 @@ Echo_Green "👉 Start installing debug..."
 wget -q https://raw.githubusercontent.com/slyang-git/debug/main/debug -O /tmp/debug/debug \
 && chmod u+x /tmp/debug/debug
 
-export PATH=$PATH:/tmp/debug # no effect
+export PATH=$PATH:/tmp/debug >> ~/.bashrc
+
 # echo "/tmp/debug" >> $PATH
 
 Echo_Green "🎉 Debug installed successfully!"
@@ -52,4 +53,12 @@ For more information, please visit: https://www.baidu.com/
 EOF
 }
 
-usage
+main() {
+     usage
+}
+
+
+
+
+
+main "$@" || exit 1
