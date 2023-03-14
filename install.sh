@@ -53,7 +53,7 @@ EOF
 
 main() {
      usage
-     exec sh -l
+     exec bash -l
 }
 
 
