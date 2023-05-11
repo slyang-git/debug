@@ -14,7 +14,6 @@ echo "+----------------------------------------------+"
 echo "|               DLV Installer                  |"
 echo "+----------------------------------------------+"
 
-Echo_Red 'sssdffffffffff'
 ProcessID='hello'
 Echo_Yellow $ProcessID
 
